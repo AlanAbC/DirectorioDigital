@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="all"
+        android:id="@+id/grupoMenu">
+        <item
+            android:id="@+id/filtros"
+            android:title="Filtros">
+            <menu>
+                <item
+                    android:id="@+id/actuales"
+                    android:title="Actuales" />
+                <item
+                    android:id="@+id/proximos"
+                    android:title="Próximos" />
+
+                <item
+                    android:id="@+id/obras"
+                    android:title="Obras" />
+                <item
+                    android:id="@+id/eventos"
+                    android:title="Eventos"/>
+                <item
+                    android:id="@+id/todo"
+                    android:title="Todo"/>
+
+            </menu>
+        </item>
+        <item
+            android:id="@+id/subpuntos"
+            android:title="Puntos">
+            <menu>
+                <item
+                    android:id="@+id/puntos"
+                    android:title="Obras y Eventos" />
+                <item
+                    android:id="@+id/agregar_puntos_personales"
+                    android:title="Agrear puntos personales" />
+                <item
+                    android:id="@+id/ver_puntos_personales"
+                    android:title="Ver puntos personales" />
+            </menu>
+        </item>
+
+        <item
+            android:id="@+id/acerca"
+            android:title="Acerca">
+            <menu>
+                <item
+                    android:id="@+id/acerca_de"
+                    android:title="Acerca de" />
+            </menu>
+        </item>
+    </group>
+
+
+</menu>
