@@ -1,5 +1,6 @@
 package com.claresti.directoriodigital;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.design.widget.NavigationView;
@@ -28,6 +29,8 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
     final List<MenuItem> items = new ArrayList<>();
     private Menu menu;
     private Menu menuCat;
+    private Menu menuAcerca;
+    private MenuItem acerca;
     private ImageView btnMenu;
     private NavigationView nav;
 
@@ -45,7 +48,21 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
         //Asignacion de vistas a las variables de Menu
         nav = (NavigationView) findViewById(R.id.navigation);
         menu = nav.getMenu();
+
         menuCat= menu.getItem(0).getSubMenu();
+
+        /*Todo esto es temproal solo lo puse para probar como se veia el acerca de */
+        menuAcerca=menu.getItem(1).getSubMenu();
+        acerca=menuAcerca.getItem(0);
+        acerca.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Intent i = new Intent(MapaPrincipal.this, acerca.class);
+                startActivity(i);
+                return false;
+            }
+        });
+        //Aqui Acaba
     }
 
 
