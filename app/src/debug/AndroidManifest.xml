@@ -4,7 +4,8 @@
     <application>
         <activity android:name="com.claresti.directoriodigital.acerca" />
         <activity android:name="com.claresti.directoriodigital.busqueda" />
-        <activity android:name="com.claresti.directoriodigital.buscar"></activity>
+        <activity android:name="com.claresti.directoriodigital.buscar" />
+        <activity android:name="com.claresti.directoriodigital.item_desplegado"></activity>
     </application>
 
 </manifest>
