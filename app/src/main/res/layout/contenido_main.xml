@@ -29,12 +29,14 @@
 
             <TextView
                 android:layout_width="wrap_content"
+                android:id="@+id/titMenu"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/Btnmenu"
                 android:text="Directorio Digital"
+                android:fontFamily=""
                 android:textColor="#FFFFFF"
                 android:textSize="22dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="18dp"
                 android:layout_marginLeft="20dp"/>
 
         </RelativeLayout>
@@ -78,16 +80,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_icon="@drawable/list"
+
                 app:fab_size="mini"
-                app:fab_title="Ver todo de esta categoria"
+                android:padding="15dp"
+                app:fab_title="Ver categorias"
                 app:fab_colorNormal="@color/dark_transaparente"/>
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/a2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:fab_icon="@drawable/file"
+                app:fab_icon="@drawable/ubication"
                 app:fab_size="mini"
+                android:padding="6dp"
                 app:fab_title="Ver todo"
                 app:fab_colorNormal="@color/dark_transaparente"/>
 
@@ -97,7 +102,7 @@
                 android:layout_height="wrap_content"
                 app:fab_icon="@drawable/search"
                 app:fab_size="mini"
-                app:fab_title="BUscar"
+                app:fab_title="Buscar"
                 app:fab_colorNormal="@color/dark_transaparente"/>
 
         </com.getbase.floatingactionbutton.FloatingActionsMenu>

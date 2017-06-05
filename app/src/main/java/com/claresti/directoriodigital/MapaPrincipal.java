@@ -1,6 +1,7 @@
 package com.claresti.directoriodigital;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.DrawableRes;
 import android.support.design.widget.NavigationView;
@@ -10,6 +11,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -63,6 +65,18 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
             }
         });
         //Aqui Acaba
+
+        // Seteamos en una Variable donde tenemos la fuente (podemos omitir este paso y ponerla directamente cuando cargamos la fuente)
+        String carpetaFuente = "fonts/Quattrocento-Regular.otf";
+
+        // Obtenemos la id del TextView donde queremos cambiar la fuente
+                TextView vistaFuente = (TextView) findViewById(R.id.titMenu);
+
+        // Cargamos la fuente
+                Typeface fuente = Typeface.createFromAsset(getAssets(), carpetaFuente);
+
+        // Aplicamos la fuente
+                vistaFuente.setTypeface(fuente);
     }
 
 

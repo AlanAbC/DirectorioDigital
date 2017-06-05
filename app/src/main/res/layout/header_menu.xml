@@ -9,7 +9,14 @@
     android:background="#0C6282"
     android:id="@+id/l_imgFondo">
 
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/icono_app"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="15|dp"/>
 
 
 
