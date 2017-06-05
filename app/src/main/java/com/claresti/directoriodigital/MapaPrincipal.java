@@ -23,6 +23,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.R.attr.id;
+
 public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
