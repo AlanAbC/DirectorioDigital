@@ -3,7 +3,8 @@
 
     <application>
         <activity android:name="com.claresti.directoriodigital.acerca" />
-        <activity android:name="com.claresti.directoriodigital.busqueda"></activity>
+        <activity android:name="com.claresti.directoriodigital.busqueda" />
+        <activity android:name="com.claresti.directoriodigital.buscar"></activity>
     </application>
 
 </manifest>

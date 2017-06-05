@@ -53,37 +53,19 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/menu"
                 android:id="@+id/contenedor">
-                <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/img_busqueda"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_alignParentRight="true"/>
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/inp_layout_busqueda"
-                    android:layout_width="fill_parent"
+                <SearchView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_toLeftOf="@id/img_busqueda">
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:id="@+id/inp_busqueda"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_height="wrap_content"
-                        android:hint="Nombre"
-                        android:textSize="17sp"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"/>
-                </android.support.design.widget.TextInputLayout>
+                    app:iconifiedByDefault="false"
+                    android:id="@+id/inp_layout_busqueda">
+                    <requestFocus/>
+                </SearchView>
 
                 <ListView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/inp_layout_busqueda"></ListView>
+                    android:layout_below="@id/inp_layout_busqueda"
+                    android:id="@+id/listview"></ListView>
 
             </RelativeLayout>
 

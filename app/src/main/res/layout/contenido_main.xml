@@ -76,18 +76,17 @@
             app:elevation="2dp">
 
             <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/accion_buscar"
+                android:id="@+id/accion_verCategoria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_icon="@drawable/list"
-
                 app:fab_size="mini"
                 android:padding="15dp"
                 app:fab_title="Ver categorias"
                 app:fab_colorNormal="@color/dark_transaparente"/>
 
             <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/a2"
+                android:id="@+id/accion_verTodo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_icon="@drawable/ubication"
@@ -97,7 +96,7 @@
                 app:fab_colorNormal="@color/dark_transaparente"/>
 
             <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/a3"
+                android:id="@+id/accion_Buscar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_icon="@drawable/search"
