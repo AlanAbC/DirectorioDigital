@@ -2,7 +2,7 @@ package com.claresti.directoriodigital;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
+import android.widget.SearchView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 

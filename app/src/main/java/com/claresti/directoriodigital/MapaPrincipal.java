@@ -2,12 +2,10 @@ package com.claresti.directoriodigital;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
-import android.support.design.widget.FloatingActionButton;
+import android.os.Bundle;
+import com.getbase.floatingactionbutton.*;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -81,7 +79,7 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
         // Aplicamos la fuente
                 vistaFuente.setTypeface(fuente);
 
-        buscar=(FloatingActionButton)findViewById(R.id.accion_buscar);
+        buscar=(FloatingActionButton)findViewById(R.id.accion_Buscar);
         buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
