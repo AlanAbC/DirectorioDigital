@@ -38,6 +38,7 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
     private ImageView btnMenu;
     private NavigationView nav;
     FloatingActionButton buscar;
+    FloatingActionButton prueba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +87,14 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MapaPrincipal.this, buscar.class);
+                startActivity(i);
+            }
+        });
+        prueba = (FloatingActionButton)findViewById(R.id.accion_verTodo);
+        prueba.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MapaPrincipal.this, item_desplegado.class);
                 startActivity(i);
             }
         });
