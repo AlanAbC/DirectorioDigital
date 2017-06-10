@@ -38,6 +38,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.claresti.directoriodigital.Acerca" />
+        <activity android:name="com.claresti.directoriodigital.Buscar" />
+        <activity android:name="com.claresti.directoriodigital.ItemDesplegado"/>
     </application>
 
 </manifest>

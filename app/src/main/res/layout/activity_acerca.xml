@@ -6,7 +6,6 @@
     android:id="@+id/dLayout"
     android:layout_width="match_parent">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,8 +19,6 @@
             android:background= "#0C6282"
             android:id="@+id/menu"
             android:layout_alignParentTop="true">
-
-
 
             <ImageView
                 android:layout_width="60dp"
@@ -77,11 +74,8 @@
                 android:textAlignment="center"
                 android:textColor="#000"/>
 
-
-
         </RelativeLayout>
 
     </RelativeLayout>
-
 
 </android.support.v4.widget.DrawerLayout>

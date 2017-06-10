@@ -6,7 +6,7 @@ import android.widget.SearchView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class buscar extends AppCompatActivity implements SearchView.OnQueryTextListener{
+public class Buscar extends AppCompatActivity implements SearchView.OnQueryTextListener{
     ListView lv;
     SearchView searchView;
     ArrayAdapter<String> adapter;

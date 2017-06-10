@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,6 +13,7 @@
         android:layout_height="match_parent"
         android:id="@+id/dLayout"
         android:layout_width="match_parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -45,6 +45,7 @@
                     android:layout_marginLeft="20dp"/>
 
             </RelativeLayout>
+
             <ScrollView
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -54,11 +55,11 @@
                 android:fillViewport="true"
                 android:padding="0dp"
                 android:layout_below="@id/menu">
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:id="@+id/l_ventana">
-
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -70,10 +71,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="300dp"
                             android:id="@+id/img_item"
-                            android:background="@android:color/darker_gray">
-
-
-                        </ImageView>
+                            android:background="@android:color/darker_gray"/>
 
                         <RelativeLayout
                             android:layout_width="320dp"
@@ -218,11 +216,15 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="250dp"
                                 android:layout_below="@+id/ubicacionT" />
+
                         </FrameLayout>
+
                     </RelativeLayout>
+
                 </RelativeLayout>
 
             </ScrollView>
+
         </RelativeLayout>
 
         <android.support.design.widget.NavigationView
@@ -233,5 +235,7 @@
             app:menu="@menu/menu_principal"
             app:itemTextColor="#898989"
             app:headerLayout="@layout/header_menu" />
+
     </android.support.v4.widget.DrawerLayout>
+
 </android.support.design.widget.CoordinatorLayout>

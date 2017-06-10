@@ -23,8 +23,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-import static android.R.attr.id;
-
 public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -57,13 +55,13 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
 
         menuCat= menu.getItem(0).getSubMenu();
 
-        /*Todo esto es temproal solo lo puse para probar como se veia el acerca de */
+        /*Todo esto es temproal solo lo puse para probar como se veia el Acerca de */
         menuAcerca=menu.getItem(1).getSubMenu();
         acerca=menuAcerca.getItem(0);
         acerca.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                Intent i = new Intent(MapaPrincipal.this, acerca.class);
+                Intent i = new Intent(MapaPrincipal.this, Acerca.class);
                 startActivity(i);
                 return false;
             }
@@ -86,7 +84,7 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
         buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MapaPrincipal.this, buscar.class);
+                Intent i = new Intent(MapaPrincipal.this, Buscar.class);
                 startActivity(i);
             }
         });
@@ -94,7 +92,7 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
         prueba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MapaPrincipal.this, item_desplegado.class);
+                Intent i = new Intent(MapaPrincipal.this, ItemDesplegado.class);
                 startActivity(i);
             }
         });

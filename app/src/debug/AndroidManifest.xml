@@ -2,10 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
-        <activity android:name="com.claresti.directoriodigital.acerca" />
-        <activity android:name="com.claresti.directoriodigital.busqueda" />
-        <activity android:name="com.claresti.directoriodigital.buscar" />
-        <activity android:name="com.claresti.directoriodigital.item_desplegado"></activity>
+        <activity android:name="com.claresti.directoriodigital.Acerca" />
+        <activity android:name="com.claresti.directoriodigital.Buscar" />
+        <activity android:name="com.claresti.directoriodigital.ItemDesplegado"></activity>
     </application>
 
 </manifest>

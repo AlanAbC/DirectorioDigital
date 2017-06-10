@@ -3,12 +3,12 @@ package com.claresti.directoriodigital;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class acerca extends AppCompatActivity {
+public class ItemDesplegado extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_acerca);
+        setContentView(R.layout.activity_item_desplegado);
     }
 }
