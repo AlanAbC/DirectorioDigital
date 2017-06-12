@@ -1,12 +1,22 @@
 package com.claresti.directoriodigital;
 
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import com.getbase.floatingactionbutton.*;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +36,7 @@ import java.util.List;
 public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    AlertDialog alert = null;
     //Menu, Declaracion de variables
     private DrawerLayout drawerLayout;
     final List<MenuItem> items = new ArrayList<>();
@@ -37,6 +48,13 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
     private NavigationView nav;
     FloatingActionButton buscar;
     FloatingActionButton prueba;
+
+    private final String LOGTAG = "DVMP";
+
+    //Location Variables
+    private LocationManager locationManager;
+    private Criteria criteria;
+    private double latitud, longitud;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +72,14 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
         menu = nav.getMenu();
 
         menuCat= menu.getItem(0).getSubMenu();
+
+        //Get Location
+        locationManager = (LocationManager) getSystemService(getApplicationContext().LOCATION_SERVICE);
+        criteria = new Criteria();
+
+        //Location Update Request
+        getLastLocationUpdate();
+
 
         /*Todo esto es temproal solo lo puse para probar como se veia el Acerca de */
         menuAcerca=menu.getItem(1).getSubMenu();
@@ -110,15 +136,77 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng lastLocation = new LatLng(latitud, longitud);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(lastLocation));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f));
     }
 
     //Funcion para agregar items al menu solo resta establecer como se manejaran los iconos
     public void agregarMenuItem(String nombreItem){
         menuCat.add(nombreItem).setIcon(R.drawable.menu);
+    }
+
+    //Request to enable GPS
+    private void checkLocationSettings() {
+        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("El sistema GPS esta desactivado, ¿Desea activarlo?")
+                .setCancelable(false)
+                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    public void onClick(@SuppressWarnings("unused") final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                        startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(final DialogInterface dialog, @SuppressWarnings("unused") final int id) {
+                        dialog.cancel();
+                    }
+                });
+        alert = builder.create();
+        alert.show();
+    }
+
+    private void getLastLocationUpdate()
+    {
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        locationManager.requestLocationUpdates(5000, 100, criteria, new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+                latitud = location.getLatitude();
+                longitud = location.getLongitude();
+            }
+
+            @Override
+            public void onStatusChanged(String s, int i, Bundle bundle) {
+
+            }
+
+            @Override
+            public void onProviderEnabled(String s) {
+
+            }
+
+            @Override
+            public void onProviderDisabled(String s) {
+
+            }
+        }, null);
+
+        Location location = locationManager.getLastKnownLocation(locationManager.getBestProvider(criteria, false));
+        if(location != null) {
+            latitud = location.getLatitude();
+            longitud = location.getLongitude();
+            Log.e(LOGTAG, "" + latitud + longitud);
+        }
+    }
+
+    //The application switch to first plane
+    @Override
+    public void onResume()
+    {
+        super.onResume();
     }
 }
