@@ -32,7 +32,7 @@
                 android:id="@+id/titMenu"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/Btnmenu"
-                android:text="Directorio Digital"
+                android:text="@string/titulo_mapaPrincipal"
                 android:fontFamily=""
                 android:textColor="#FFFFFF"
                 android:textSize="22dp"
@@ -66,7 +66,6 @@
             android:src="@drawable/add"
             app:fab_labelStyle="@style/Etiquetas"
             app:fabSize="normal"
-            android:onClick="agregarTarea"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
@@ -82,7 +81,7 @@
                 app:fab_icon="@drawable/list3"
                 app:fab_size="mini"
                 android:padding="15dp"
-                app:fab_title="Ver categorias"
+                app:fab_title="@string/fabmenu1"
                 app:fab_colorNormal="@color/dark_transaparente"/>
 
             <com.getbase.floatingactionbutton.FloatingActionButton
@@ -92,7 +91,7 @@
                 app:fab_icon="@drawable/ubication2"
                 app:fab_size="mini"
                 android:padding="6dp"
-                app:fab_title="Ver todo"
+                app:fab_title="@string/fabmenu2"
                 app:fab_colorNormal="@color/dark_transaparente"/>
 
             <com.getbase.floatingactionbutton.FloatingActionButton
@@ -101,7 +100,7 @@
                 android:layout_height="wrap_content"
                 app:fab_icon="@drawable/search2"
                 app:fab_size="mini"
-                app:fab_title="Buscar"
+                app:fab_title="@string/fabmenu2"
                 app:fab_colorNormal="@color/dark_transaparente"/>
 
         </com.getbase.floatingactionbutton.FloatingActionsMenu>

@@ -1,4 +1,60 @@
 <resources>
     <string name="app_name">Directorio Digital</string>
     <string name="title_activity_mapa_principal">Directorio Digital</string>
+
+    <!--Spanish Strings -->
+        <!--MapaPrincipal-->
+            <string name="titulo_mapaPrincipal">Directorio Digital</string>
+            <string name="fabmenu1">Ver todo de esta categoria</string>
+            <string name="fabmenu2">Ver todo</string>
+            <string name="fabmenu3">Buscar</string>
+            <string name="title_bottomSheet">Hola soy Directorio Digital</string>
+            <string name="content_bottomSheet">Direcorio Digital te permite encontrar todos aquellos lugares que siempre has buscado de la manera mas rapida y sencilla posible, ven y conoce tus tiendas favoritas!</string>
+            <string name="button_bottomSheet">Vamos a verlo!</string>
+        <!--MapaPrincipal-->
+        <!--Item_desplegado-->
+            <string name="nombre_item">Nombre</string>
+            <string name="descripcion_item">Descripción</string>
+            <string name="telefono_item">Telefono</string>
+            <string name="correo_item">Correo</string>
+            <string name="sitio_item">Sitio</string>
+            <string name="direccion_item">Dirección</string>
+        <!--Item_desplegado-->
+        <!--Acerca-->
+            <string name="title_acerca">Acerca de</string>
+            <string name="txt1_acerca">Desarrollado por</string>
+            <string name="txt2_acerca">CLARES TI\nQuerétaro, Querétaro, MX\nTodos los derechos reservados 2017</string>
+        <!--Acerca-->
+        <!--Buscar-->
+            <string name="title_buscar">Busqueda</string>
+        <!--Buscar-->
+    <!--Spanish Strings -->
+
+    <!--English Strings -->
+        <!--MapaPrincipal-->
+            <string name="Etitulo_mapaPrincipal">Digital Directory</string>
+            <string name="Efabmenu1">See all of this category</string>
+            <string name="Efabmenu2">See all</string>
+            <string name="Efabmenu3">Search</string>
+            <string name="Etitle_bottomSheet">Hi! Im Digital Directory</string>
+            <string name="Econtent_bottomSheet">Digital Directory allows you to find all the places you have always wanted in the fastest and easiest way possible, come and meet your favorite stores!</string>
+            <string name="Ebutton_bottomSheet">Lets see it!</string>
+        <!--MapaPrincipal-->
+        <!--Item_desplegado-->
+            <string name="Enombre_item">Name</string>
+            <string name="Edescripcion_item">Description</string>
+            <string name="Etelefono_item">Phone</string>
+            <string name="Ecorreo_item">Mail</string>
+            <string name="Esitio_item">Web page</string>
+            <string name="Edireccion_item">Address</string>
+        <!--Item_desplegado-->
+        <!--Acerca-->
+            <string name="Etitle_acerca">About</string>
+            <string name="Etxt1_acerca">Developed by</string>
+            <string name="Etxt2_acerca">CLARES TI\nQuerétaro, Querétaro, MX\nAll rights reserved 2017</string>
+        <!--Acerca-->
+        <!--Buscar-->
+            <string name="Etitle_buscar">Search</string>
+        <!--Buscar-->
+    <!--English Strings -->
 </resources>

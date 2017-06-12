@@ -15,7 +15,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:padding="16dp"
         android:textColor="#ffffff"
-        android:text="Hola soy Directorio Digital" />
+        android:text="@string/title_bottomSheet" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,11 +23,11 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:padding="16dp"
         android:textColor="#ffffff"
-        android:text="Direcorio Digital te permite encontrar todos aquellos lugares que siempre has buscado de la manera mas rapida y sencilla posible, ven y conoce tus tiendas favoritas!" />
+        android:text="@string/content_bottomSheet"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Vamos a verlo!"
+        android:text="@string/button_bottomSheet"
         android:layout_marginTop="50dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
