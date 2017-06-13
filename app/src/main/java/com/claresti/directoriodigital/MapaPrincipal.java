@@ -2,6 +2,7 @@ package com.claresti.directoriodigital;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,9 +11,13 @@ import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import com.getbase.floatingactionbutton.*;
+
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
@@ -21,6 +26,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -33,11 +39,21 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+
 public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallback {
 
+    // Variable del mapa
     private GoogleMap mMap;
+
     AlertDialog alert = null;
-    //Menu, Declaracion de variables
+
+    // Permisos
+    private final int MY_PERMISSION = 100;
+
+    // Menu, Declaracion de variables
+    private RelativeLayout ventana;
     private DrawerLayout drawerLayout;
     final List<MenuItem> items = new ArrayList<>();
     private Menu menu;
@@ -70,6 +86,9 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
         //Asignacion de vistas a las variables de Menu
         nav = (NavigationView) findViewById(R.id.navigation);
         menu = nav.getMenu();
+
+        // Asignacion de la variable del layout principal
+        ventana = (RelativeLayout)findViewById(R.id.l_ventana);
 
         menuCat= menu.getItem(0).getSubMenu();
 
@@ -139,8 +158,63 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         LatLng lastLocation = new LatLng(latitud, longitud);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(lastLocation));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15.0f));
+        LatLng qro = new LatLng(20.5897233, -100.3915028);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(qro));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(14.0f));
+
+        //Validacion de permisos
+        if (permisos()) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            mMap.setMyLocationEnabled(true);
+            findMe();
+        }
+    }
+
+    /**
+     * funcion encargada de verificar los permisos de ubicacion y en caso de no tenerlos
+     * solicita al usuario activarlos
+     * @return true en caso de tener los permisos, false en caso contrario
+     */
+    private boolean permisos() {
+        if(Build.VERSION.SDK_INT < Build.VERSION_CODES.M){
+            return true;
+        }
+        if((checkSelfPermission(ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) && (checkSelfPermission(ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED)){
+            return true;
+        }
+        if((shouldShowRequestPermissionRationale(ACCESS_FINE_LOCATION)) || (shouldShowRequestPermissionRationale(ACCESS_COARSE_LOCATION))){
+            Snackbar.make(ventana, "Los permisos son necesarios para poder usar la aplicación", Snackbar.LENGTH_INDEFINITE)
+                    .setAction(android.R.string.ok, new View.OnClickListener() {
+                        @RequiresApi(api = Build.VERSION_CODES.M)
+                        @Override
+                        public void onClick(View v) {
+                            requestPermissions(new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, MY_PERMISSION);
+                        }
+                    }).show();
+        }else{
+            requestPermissions(new String[]{ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION}, MY_PERMISSION);
+        }
+        return false;
+    }
+
+    /**
+     * funcion que consigue la ubicacion actual del usuario y lo posiciona en el mapa
+     */
+    private void findMe() {
+        LocationManager locationManager = (LocationManager)
+                getSystemService(Context.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+        Location location = locationManager.getLastKnownLocation(locationManager
+                .getBestProvider(criteria, false));
+        latitud = location.getLatitude();
+        longitud = location.getLongitude();
+        LatLng myLocation = new LatLng(latitud, longitud);
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myLocation, 14));
     }
 
     //Funcion para agregar items al menu solo resta establecer como se manejaran los iconos
