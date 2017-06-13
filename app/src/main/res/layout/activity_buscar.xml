@@ -52,19 +52,16 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/menu"
                 android:id="@+id/contenedor">
-
-                <SearchView
+                <fragment
+                    android:id="@+id/placeAutocompleteFragment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:iconifiedByDefault="false"
-                    android:id="@+id/inp_layout_busqueda">
-                    <requestFocus/>
-                </SearchView>
+                    android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"/>
 
                 <ListView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/inp_layout_busqueda"
+                    android:layout_below="@id/placeAutocompleteFragment"
                     android:id="@+id/listview"/>
 
             </RelativeLayout>
