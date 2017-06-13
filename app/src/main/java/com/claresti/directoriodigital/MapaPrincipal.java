@@ -89,6 +89,7 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
 
         // Asignacion de la variable del layout principal
         ventana = (RelativeLayout)findViewById(R.id.l_ventana);
+        btnMenu = (ImageView)findViewById(R.id.Btnmenu);
 
         menuCat= menu.getItem(0).getSubMenu();
 
@@ -111,6 +112,15 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
                 return false;
             }
         });
+
+        // Seccion encargada de mostrar el menu al dar click en el boton de menu (Reacomodar en una funcion encargada de toda la funcionalid del menu)
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(nav);
+            }
+        });
+
         //Aqui Acaba
 
         // Seteamos en una Variable donde tenemos la fuente (podemos omitir este paso y ponerla directamente cuando cargamos la fuente)
