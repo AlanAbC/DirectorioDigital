@@ -1,11 +1,13 @@
 package com.claresti.directoriodigital;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.SearchView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.AutocompleteFilter;
@@ -53,6 +55,18 @@ public class Buscar extends AppCompatActivity implements SearchView.OnQueryTextL
         adapter=new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, data);
         lv.setAdapter(adapter);
         searchView.setOnQueryTextListener(this);*/
+
+        //Seccion de cambio de tipografia
+        //Seccion para cambiar tipografias
+        // Seteamos en una Variable donde tenemos la fuente (podemos omitir este paso y ponerla directamente cuando cargamos la fuente)
+        String carpetaFuente = "fonts/Quattrocento-Regular.otf";
+        // Obtenemos la id del TextView donde queremos cambiar la fuente
+        TextView vistaFuente = (TextView) findViewById(R.id.tit_busqueda);
+        // Cargamos la fuente
+        Typeface fuente = Typeface.createFromAsset(getAssets(), carpetaFuente);
+        // Aplicamos la fuente
+        vistaFuente.setTypeface(fuente);
+
     }
     public boolean onQueryTextSubmit(String query){
         return false;

@@ -125,15 +125,14 @@ public class MapaPrincipal extends FragmentActivity implements OnMapReadyCallbac
 
         // Seteamos en una Variable donde tenemos la fuente (podemos omitir este paso y ponerla directamente cuando cargamos la fuente)
         String carpetaFuente = "fonts/Quattrocento-Regular.otf";
-
         // Obtenemos la id del TextView donde queremos cambiar la fuente
                 TextView vistaFuente = (TextView) findViewById(R.id.titMenu);
-
         // Cargamos la fuente
                 Typeface fuente = Typeface.createFromAsset(getAssets(), carpetaFuente);
-
         // Aplicamos la fuente
                 vistaFuente.setTypeface(fuente);
+
+        //Intents prueba para el menu floating
 
         buscar=(FloatingActionButton)findViewById(R.id.accion_Buscar);
         buscar.setOnClickListener(new View.OnClickListener() {

@@ -1,11 +1,13 @@
 package com.claresti.directoriodigital;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class Acerca extends AppCompatActivity {
 
@@ -38,5 +40,20 @@ public class Acerca extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        //Seccion para cambiar tipografias
+        // Seteamos en una Variable donde tenemos la fuente (podemos omitir este paso y ponerla directamente cuando cargamos la fuente)
+        String carpetaFuente = "fonts/Quattrocento-Regular.otf";
+        // Obtenemos la id del TextView donde queremos cambiar la fuente
+        TextView vistaFuente = (TextView) findViewById(R.id.tit_acerca);
+        TextView desarrolado = (TextView) findViewById(R.id.txt_DesarrolladoPor);
+        TextView acerca = (TextView) findViewById(R.id.txt_claresTI);
+        // Cargamos la fuente
+        Typeface fuente = Typeface.createFromAsset(getAssets(), carpetaFuente);
+        // Aplicamos la fuente
+        vistaFuente.setTypeface(fuente);
+        desarrolado.setTypeface(fuente);
+        acerca.setTypeface(fuente);
     }
 }
